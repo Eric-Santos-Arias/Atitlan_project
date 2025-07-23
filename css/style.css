@@ -1,75 +1,406 @@
-body {
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  height: 400vh;
 }
 
-.img {
-  background-color: gray;
-  width: 100%;
+.container {
   height: 100vh;
-}
-
-main {
-  width: 90%;
-  margin: 0 auto;
-}
-
-.focus {
-  background-color: white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   width: 100%;
-  height: 100vh;
-
+  perspective: 1px;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
-.main-text {
-  font-size: 45px;
-}
-
-.content {
+.menu {
+  padding: 10px;
+  top: 0px;
+  position: fixed;
+  z-index: 100;
   width: 100%;
-  height: 100vh;
+  left: 0px;
+  right: 0px;
 
 }
 
-.sub-content {
+.menu ul {
+  color: black;
+  list-style: none;
+  font-weight: bold;
+  font-size: clamp(20px, 1vw + 2px, 5rem);
   display: flex;
   justify-content: space-between;
 }
 
-.sub-content>p {
-  width: 60%;
+.menu {
+  background-color: white;
+  opacity: 0;
 }
 
-.img-set {
-  background-color: gray;
-  width: 150px;
-  height: 200px;
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  transform-style: preserve-3d;
 }
 
-.solution {
+.back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: url(../public/1.webp);
+  background-position: center;
+  background-repeat: no-repeat;
+  font-size: clamp(20px, 1vw + 2px, 5rem);
+  transform: translateZ(-1.5px) scale(2.5);
+}
+
+.front {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-image: url(../public/2.webp);
+  transform: translateZ(-1px) scale(2);
+}
+
+.main-text-container {
+  text-align: center;
+  font-size: clamp(20px, 1vw + 2px, 5rem);
+}
+
+.title {
+  position: relative;
+  /* font-size: 6rem; */
+  font-size: clamp(20px, 2.5vw + 3rem, 7rem);
+  color: white;
+  transform: translateZ(-0.5px) scale(1.5);
+}
+
+.subtitle {
+  margin-top: 50px;
+  color: white;
+}
+
+.main-content-container {
+  height: 100vh;
+  width: 100%;
+  background-color: white;
+  color: black;
+  transform: translateZ(0px);
+}
+
+.content {
+  width: 100%;
+  height: 100%;
+  align-items: center;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+}
+
+.content p {
+  width: 45%;
+  font-size: clamp(18px, 1vw + 1px, 5rem);
+}
+
+.img-container {
+  padding: 30px;
+  transform-style: preserve-3d;
+  width: 100%;
+  height: 50vh;
+  display: flex;
+}
+
+.img-container img {
+  width: 0px;
+  flex-grow: 1;
+  object-fit: cover;
+  transition: 0.5s ease;
+}
+
+.img-container img:hover {
+  width: 300px;
+}
+
+.second-image {
+  width: 300px;
+  transform: scale(1.1);
+}
+
+.problem {
+  text-align: center;
+  background-color: white;
   height: 100vh;
   width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
-.solution-img {
+.problem p {
+  width: 70%;
+  font-size: clamp(20px, 1vh + 0.5px, 6rem);
+  margin-top: 10px;
+  padding: 10px;
+}
+
+.problem .call {
+  font-size: 200px;
+  font-weight: bold;
+}
+
+.content-problem {
   width: 100%;
-  height: 55vh;
-  background-color: gray;
+  height: 100vh;
 }
 
+.content-problem p {
+  margin-top: 50px;
+  width: 70%;
+  margin: 0 auto;
+}
+
+.content-problem h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.carrusel {
+  width: 50%;
+  height: 50vh;
+  margin: 0 auto;
+  margin-bottom: 50px;
+}
+
+.carrusel .images {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.carrusel img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  object-fit: fill;
+  animation: fade 9s infinite;
+}
+
+.carrusel .first-image {
+  animation-delay: 0s;
+}
+
+.carrusel .second-image {
+  animation-delay: 3s;
+  width: 95%;
+  height: 90%;
+  left: 15px;
+  top: 15px;
+}
+
+
+.carrusel .third-image {
+  animation-delay: 6s;
+}
+
+hr {
+  width: 70%;
+  margin: 0 auto;
+  height: 2px;
+  border: none;
+  background-color: black;
+}
+
+.comments-container {
+  height: 50vh;
+  width: 100%;
+  margin-top: 50px;
+}
+
+.comments-container h2 {
+  text-align: center;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+.comments {
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.comments article {
+  height: 130px;
+  width: 20%;
+}
+
+.comments blockquote {
+  margin-bottom: 10px;
+}
+
+.comments blockquote p {
+  font-size: 14px;
+}
+
+cite {
+  font-weight: bolder;
+}
 
 .information {
-  height: 100vh;
+  margin: 0 auto;
+  width: 60%;
+  height: 40vh;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-input {
+.information h2 {
+  margin-bottom: 30px;
+}
+
+.information input {
+  padding: 5px;
   display: block;
+  margin: 20px 20px;
+  width: 90%;
+  outline: none;
+  text-align: center;
+  border: none;
+  border-bottom: 1px solid black;
+}
+
+.information button {
+  background-color: black;
+  color: white;
+  padding: 10px;
+  border: none;
+  font-weight: bold;
+  letter-spacing: 1px;
+  margin-top: 50px;
+}
+
+.information button:hover {
+  transform: scale(1.1);
+}
+
+footer {
+  margin-top: 20px;
+  text-align: center;
+  padding: 10px;
+  font-size: 13px;
+}
+
+@keyframes fade {
+  0% {
+    opacity: 0;
+  }
+
+  10% {
+    opacity: 1;
+  }
+
+  30% {
+    opacity: 1;
+  }
+
+  40% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+
+@media (min-width: 801px) and (max-width: 1000px) {
+  .img-container {
+    width: 70%;
+    height: 400px;
+  }
+
+
+  .content {
+    height: 100vh;
+  }
+
+  .content p {
+    width: 90%;
+  }
+
+  .main-content-container {
+    height: 100vh;
+    margin-top: 20vh;
+  }
+
+  .problem {
+    height: 50vh;
+    margin-top: 50vh;
+  }
+
+  .problem .call {
+    font-size: 70px;
+  }
+
+  .content-problem {
+    height: 100vh;
+    margin-bottom: 200px;
+  }
+
+  .comments-container {
+    margin-bottom: 70vh;
+  }
+}
+
+@media (max-width: 800px) {
+  .content p {
+    font-size: 16px;
+    width: 90%;
+  }
+
+
+  .second-image {
+    transform: scale(1.1);
+  }
+
+  .problem {
+    height: 70vh;
+  }
+
+  .problem .call {
+    font-size: 70px;
+  }
+
+  .img-container img:hover {
+    width: 150px;
+  }
+
+  .carrusel {
+    width: 90%;
+    height: 30vh;
+  }
+
+  .content-problem p {
+    margin: 20px auto;
+    font-size: 15px;
+    padding: 10px;
+    width: 90%;
+  }
+
+  .comments article {
+    font-size: 12px;
+    width: 40%;
+  }
 }
