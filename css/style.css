@@ -393,6 +393,9 @@ footer {
     margin-bottom: 200px;
   }
 
+  hr {
+    margin-top: 100vh;
+  }
 
 
   .comments-container {
@@ -401,6 +404,9 @@ footer {
 }
 
 @media (max-width: 800px) {
+  .content-problem {
+    height: 30vh;
+  }
 
   .menu {
     justify-content: space-around;
@@ -452,7 +458,7 @@ footer {
   }
 
   hr {
-    margin-top: 20vh;
+    margin-top: 100vh;
   }
 
   .comments article {
