@@ -68,5 +68,5 @@ es una llamada a la acción para todos los que aman Atitlán y desean **preserva
 Cada línea de código, cada decisión de diseño y cada palabra reflejan el  deseo de **cuidar lo que es nuestro**.
 
 ¡Gracias por formar parte!
-
+https://eric-santos-arias.github.io/Atitlan_project/
 
